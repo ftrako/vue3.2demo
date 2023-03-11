@@ -1,11 +1,33 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 
+// 老的写法
+// defineProps({
+//   count: Number
+// })
+
+// // 新写法
+// defineProps<{
+//   count: number
+// }>()
+
+// 新写法带默认值
+withDefaults(defineProps<{
+  count: number
+  age: number
+}>(),{age:100})
+
+
+const modify = () => {
+  console.log("modify")
+}
 
 </script>
 
 <template>
-  这是子页面<br />
+  这是子页面 count={{ count }}<br/>
+  这是子页面 age={{ age }}<br/>
+  <button @click="modify">子页面修改按钮</button>
+  <br/>
 </template>
 
 <style scoped>
