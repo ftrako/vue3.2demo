@@ -16,10 +16,13 @@ withDefaults(defineProps<{
   age: number
 }>(),{age:100})
 
+const emits = defineEmits<{(e : 'handleClick', data:number):void}>()
 
 const modify = () => {
-  console.log("modify")
+  console.log("Child->modify")
+  emits("handleClick",22)
 }
+
 
 </script>
 
